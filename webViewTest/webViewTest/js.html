@@ -1,0 +1,29 @@
+<html>
+    <script>
+        function callObjcMethod() {
+            var href ="objc://";
+            for (i = 0; i < arguments.length; i++) {
+                if (0 === i) {
+                    href += arguments[i];
+                } else {
+                    href += ":/" + arguments[i];
+                }
+            }
+            alert(href);
+            window.location.href = href;
+        }
+    </script>
+    <body>
+        <a href="http://www.baidu.com">aa</a>
+        <input type="button" id="enter0" value="enter0" onclick="callObjcMethod('selectSeat');"/>
+        <input type="button" id="enter1" value="enter1" onclick="callObjcMethod('selectSeat:','param1');"/>
+       <!-- <input type="button" id="enter2" value="enter2" onclick="callObjcMethod('selectSeat:param2:','param1', 'param2');"/> -->
+       <input type="button" id="enter2" value="enter2" onclick="callObjcMethod('shoot');"/>
+       <input type="button" id="enter2" value="enter2" onclick="callObjcMethod('callWithPhone:','phone number');"/>
+       <input type="button" id="enter2" value="enter2" onclick="callObjcMethod('smsWithPhone:text:','phone number','text');"/>
+       <input type="button" id="enter2" value="enter2" onclick="callObjcMethod('downloadWithAddress:','address');"/>
+       <input type="button" id="enter2" value="enter2" onclick="callObjcMethod('insideWithAddress:','address');"/>
+       <input type="button" id="enter2" value="enter2" onclick="callObjcMethod('outsideWithAddress:','address');"/>
+       <input type="button" id="enter2" value="enter2" onclick="callObjcMethod('mapWithAddress:','address');"/>
+    </body>
+</html>

@@ -1,0 +1,655 @@
+#import <Foundation/Foundation.h>
+ 
+@interface DYParseJson : NSObject
+ 
+//错误枚举，0表示解析成功
+@property (readonly, nonatomic) NSInteger error;
+ 
+#pragma mark - 实例方法
+//解析字符串
+- (id)jsonWithString:(NSString *)str;
+ 
+//将二进数据转为json对象
+- (id)jsonWithData:(NSData *)data;
+ 
+#pragma mark - 类方法
+//解析字符串
++ (id)jsonWithString:(NSString *)str;
+ 
+//将二进数据转为json对象
++ (id)jsonWithData:(NSData *)data;
+@end
+
+
+//
+//  DYParseJson.m
+//  DYPackage
+//
+//  Created by duoyi on 12-4-25.
+//  Copyright (c) 2012年  Guangzhou Duo Yi Network Technology. All rights reserved.
+//
+ 
+#import "DYParseJson.h"
+ 
+enum{
+    //空格
+    kCharSpace          = ' ',
+    //回车
+    kCharEnter          = '\n',
+    //换行
+    kCharWrap           = '\r',
+    //制表
+    kCharTabs           = '\t',
+    //退格
+    kCharBackspace      = '\b',
+    //走纸换页
+    kCharPaging         = '\f',
+    //斜杠
+    kCharSlash          = '\\',
+    //反斜杠
+    kCharBackslash      = '/',
+    //空字符
+    kCharNull           = '\0',
+    //单引号
+    //kCharQuote  = '\'',
+    //双引号
+    kCharQuote /*kCharDoubleQuote */  = '"',
+    //大写A
+    kCharUpperA         = 'A',
+    //大写B
+    kCharUpperB         = 'B',
+    //大写C
+    kCharUpperC         = 'C',
+    //大写D
+    kCharUpperD         = 'D',
+    //大写E
+    kCharUpperE         = 'E',
+    //大写F
+    kCharUpperF         = 'F',
+    //小写a
+    kCharLowerA         = 'a',
+    //小写b
+    kCharLowerB         = 'b',
+    //小写c
+    kCharLowerC         = 'c',
+    //小写d
+    kCharLowerD         = 'd',
+    //小写e
+    kCharLowerE         = 'e',
+    //小写f
+    kCharLowerF         = 'f',
+    //小写n
+    kCharLowerN         = 'n',
+    //小写l
+    kCharLowerL         = 'l',
+    //小写x
+    //kCharLowerX         = 'x',
+    //小写t
+    kCharLowerT         = 't',
+    //小写u
+    kCharLowerU         = 'u',
+    //小写r
+    kCharLowerR         = 'r',
+    //小写s
+    kCharLowerS         = 's',
+    //负号
+    kCharNegative       = '-',
+    //0
+    kCharZero           = '0',
+    //2
+    //kCharThird          = '3',
+    //7
+    //kCharSeven          = '7',
+    //9
+    kCharNine           = '9',
+    //小数点
+    kCharDecimalPoint   = '.',
+    //左中括号
+    kCharLeftBrackets   = '[',
+    //右中括号
+    kCharRightBrackets  = ']',
+    //左大括号
+    kCharLeftBraces     = '{',
+    //右大括号
+    kCharRightBraces    = '}',
+    //逗号
+    kCharComma          = ',',
+    //冒号
+    kCharColon          = ':'
+};
+ 
+#pragma mark - 解析辅助方法
+ 
+//判断字符是否是空白字符
+BOOL isBlank(const char *bytes){
+    return  *bytes == kCharSpace || *bytes == kCharEnter || *bytes == kCharWrap  || *bytes == kCharTabs;
+}
+ 
+//解析十六进制数，其他len表示一共解析多少位字符,-1表示解析失败
+long hexadecimal(const char *bytes, int len){
+ 
+    //结果
+    long result = 0;
+ 
+    for(int i = 0; i < len; i++){
+        //获取当前的字符
+        char byte = *bytes;
+        //字符应该减掉的值
+        int desc = 0;
+ 
+        //0-9
+        if(byte >= kCharZero && byte <= kCharNine){
+            desc = 48;
+        }
+        //a-f
+        else if(byte >= kCharLowerA && byte <= kCharLowerF){
+            desc = 87;
+        }
+        //A-F
+        else if(byte >= kCharUpperA && byte <= kCharUpperF){
+            desc = 55;
+        }
+        else{
+            result = -1;
+            break;
+        }
+ 
+        result = result * 16 + byte - desc;
+ 
+        bytes++;
+    }
+ 
+    //修改指针指向
+    return result;
+ 
+}
+ 
+//转换utf8
+int convertUTF8(const char *bytes, char *result){
+    //utf8解析后的长度
+    int len = 0;
+ 
+    //获取4位十六进制字符
+    NSInteger unicode = hexadecimal(bytes, 4);
+ 
+    //标准的acsii码
+    if (unicode >= 0x0000 && unicode <= 0x007f){
+        result[len ++ ] = unicode;
+    }
+    //双字节字符
+    else if (unicode >= 0x0080 && unicode <= 0x07ff){
+        result[len++ ] = 0xc0 | (unicode >> 6);
+        result[len++ ] = 0x80 | (unicode & (0xff >> 2));
+    }
+    //三字节字符
+    else if (unicode >= 0x0800 && unicode <= 0xffff){
+        result[len++ ] = 0xe0 | (unicode >> 12);
+        result[len++ ] = 0x80 | (unicode >>6 & 0x0bf);
+        result[len++ ] = 0x80 | (unicode & (0xff >> 2));
+    }
+ 
+    return len;
+}
+ 
+//跳掉所有空白字符
+void skipBlank(const char **bytes){
+    while (isBlank(*bytes)) {
+        (*bytes)++;
+    }
+}
+ 
+#pragma mark - 解析基本类型的方法
+//解析数字
+NSNumber *number(const char **parseBytes , int *error){
+ 
+    const char *bytes = *parseBytes;
+ 
+    //分隔索引
+    int sIndex = 0;
+ 
+    //判断是否是负数
+    if(*bytes == kCharNegative){
+        bytes++;
+        sIndex = 1;
+    }
+ 
+    //标识是否是浮点数
+    BOOL isDobule = NO;
+ 
+    //出现浮点数e的位置
+    BOOL isSpecial = NO;
+    //int eIndex = -1;
+ 
+    while (*bytes != kCharNull) {
+        if(isnumber(*bytes)){
+            bytes++;
+        }
+        else if(!isDobule && *bytes == kCharDecimalPoint){
+            isDobule = YES;
+            bytes++;
+            sIndex = bytes - *parseBytes;
+        }
+        else if(isDobule && !isSpecial && (*bytes == kCharUpperE || *bytes == kCharLowerE)){
+            isSpecial = YES;
+            bytes++;
+ 
+            if(*bytes == kCharNegative || *bytes == '+'){
+                bytes++;
+            }
+            sIndex = bytes - *parseBytes;
+        }
+        else{
+            break;
+        }
+    }
+ 
+    int len = bytes - *parseBytes;
+ 
+    //判断是否是边界字符
+    if(sIndex == len){
+        *error = 1;
+        return 0;
+    }
+ 
+    char copy[len + 1];
+    strncpy(copy, *parseBytes , len);
+    copy[len] = kCharNull;
+ 
+    double result = atof(copy);
+ 
+    *parseBytes = bytes;
+ 
+    return [NSNumber numberWithDouble:result];
+}
+ 
+//解析字符串
+NSString *string(const char **parseBytes, int *error){
+ 
+    const char *bytes = *parseBytes;
+ 
+    //不是双引号
+    if(*bytes != kCharQuote)
+    {
+        *error = 1;
+        return nil;
+    }
+    else{
+        bytes++;
+    }
+ 
+    //保存字符
+    NSMutableData *data = [[NSMutableData alloc]initWithCapacity:100];
+ 
+    //声明指针数组
+    char byte[2] = {0};
+ 
+    //每次增加的字符长度
+    int strLen = 1;
+ 
+    while (*bytes != kCharNull && *bytes != kCharQuote) {
+        //每次只增加一个字符
+        strLen = 1;
+ 
+        //如果遇到杠
+        if(*bytes ==  kCharSlash){
+            //获取下一个字符
+            bytes++;
+ 
+            switch (*bytes) {
+                    //回车符
+                case kCharLowerN:
+                    *byte = kCharEnter;
+                    break;
+ 
+                    //换行符
+                case kCharLowerR:
+                    *byte = kCharWrap;
+                    break;
+ 
+                    //制表符
+                case kCharLowerT:
+                    *byte = kCharTabs;
+                    break;
+ 
+                    //换页符
+                case kCharLowerF:
+                    *byte = kCharPaging;
+                    break;
+ 
+                    //边界符
+                case kCharLowerB:
+                    *byte = kCharBackspace;
+                    break;
+ 
+                    //其他可转义字符
+                case kCharWrap: //换行
+                case kCharEnter://回车
+                case kCharSlash://斜杠
+                case kCharQuote://引号
+                case kCharBackslash://反斜杠
+                    *byte = *bytes;
+                    break;
+ 
+                    //中文汉字
+                case kCharLowerU:
+                    //获取汉字编码
+                    strLen = convertUTF8(bytes + 1, byte);
+                    //指针向后移动4位
+                    bytes += 4;
+                    //获取失败
+                    if(strLen == 0){
+                        *error = 1;
+                        //修改指针的指向
+                        *parseBytes = bytes;
+                        return nil;
+                    }
+                    break;
+ 
+                    //其他字符出错
+                default:
+                    *error = 1;
+                    //修改指针的指向
+                    *parseBytes = bytes;
+                    return nil;
+            }
+        }
+ 
+        else{
+            *byte = *bytes;
+        }
+        //跳过转义的字符
+        bytes++;
+ 
+        [data appendBytes:byte length:strLen];
+    }
+ 
+    //保存解析结果
+    NSString *result = nil;
+ 
+    //解析出错
+    if(*bytes != '"'){
+        *error = 1;
+    }
+    else{
+        bytes++;
+        result = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    }
+ 
+    //修改指针的指向
+    *parseBytes = bytes;
+ 
+    return result;
+}
+ 
+//声明函数
+id json(const char **parseBytes,int *error);
+ 
+//解析数组
+NSArray *array(const char **parseBytes, int *error){
+    //获取指针的指针
+    const char *bytes = *parseBytes;
+ 
+    //判断是不是数组开始
+    if(*bytes != kCharLeftBrackets){
+        *error = 0;
+        return nil;
+    }
+ 
+    bytes++;
+ 
+    //解析元素
+    id value = nil;
+ 
+    //数组初始化
+    NSMutableArray *result = [NSMutableArray array];
+ 
+    //循环解析元素
+    while (*bytes != kCharRightBrackets && bytes != kCharNull) {
+        //解析数组元素
+        value = json(&bytes, error);
+ 
+        //解析出错
+        if(*error == 1){
+            break;
+        }
+ 
+        //添加元素
+        [result addObject:value];
+ 
+        //删除空白
+        skipBlank(&bytes);
+ 
+        //判断是否是元素分隔符
+        if(*bytes != kCharComma){
+            break;
+        }
+        else{
+            bytes++;
+        }
+    }
+ 
+    //判断是否发生了错误
+    if(*error == 1){
+        result = nil;
+    }
+    //判断是否是以']'结束，如果不是发生解析错误
+    else if(*bytes != kCharRightBrackets){
+        result = nil;
+        *error = 1;
+    }
+    else{
+        bytes++;
+    }
+ 
+    //重新设置指针的指向
+    *parseBytes = bytes;
+ 
+    return result;
+}
+ 
+//解析字典
+NSDictionary *dictionary(const char **parseBytes, int *error){
+    //获取指针的指向
+    const char *bytes = *parseBytes;
+ 
+    //判断是否是开始字符
+    if(*bytes != kCharLeftBraces){
+        *error = 1;
+        return nil;
+    }
+ 
+    bytes++;
+ 
+    //字典的值
+    id value = nil;
+    //字典的键
+    NSString *key = nil;
+    //字典对象
+    NSMutableDictionary *result = [NSMutableDictionary dictionary];
+ 
+    while (*bytes != kCharRightBraces && *bytes != kCharNull) {
+        //移除前导空白
+        skipBlank(&bytes);
+ 
+        //解析字典的键
+        key = string(&bytes, error);
+ 
+        //如果解析失败
+        if(*error == 1){
+            break;
+        }
+ 
+        //移除前缀空白
+        skipBlank(&bytes);
+ 
+        //解析失败
+        if(*bytes != kCharColon){
+            *error = 1;
+            break;
+        }
+ 
+        bytes++;
+ 
+        //解析字典的值
+        value = json(&bytes, error);
+ 
+        //解析出错
+        if(*error == 1){
+            break;
+        }
+ 
+        //设置值
+        [result setObject:value forKey:key];
+ 
+        //删除空白
+        skipBlank(&bytes);
+ 
+        //判断是否是元素分隔符
+        if(*bytes != kCharComma){
+            break;
+        }
+        else{
+            bytes++;
+        }
+    }
+ 
+    //判断是否发生了错误
+    if(*error == 1){
+        result = nil;
+    }
+    //判断是否是以']'结束，如果不是发生解析错误
+    else if(*bytes != kCharRightBraces){
+        result = nil;
+        *error = 1;
+    }
+    else{
+        bytes++;
+    }
+ 
+    //重新设置指针的指向
+    *parseBytes = bytes;
+ 
+    return result;
+}
+ 
+#pragma mark - 解析递归的方法
+//解析json
+id json(const char **parseBytes, int *error){
+    @autoreleasepool {
+        //获取指针的指向
+        const char *bytes = *parseBytes;
+ 
+        //删除所有前导空白
+        skipBlank(&bytes);
+ 
+        //返回结果
+        id value = nil;
+ 
+        switch (*bytes) {
+                //解析为数组
+            case kCharLeftBrackets:
+                value = array(&bytes, error);
+                break;
+ 
+                //解析为字典
+            case kCharLeftBraces:
+                value = dictionary(&bytes, error);
+                break;
+ 
+                //解析为字符串
+                //case kCharQuote:
+            case kCharQuote:
+                value = string(&bytes, error);
+                break;
+ 
+                //解析为空
+            case kCharLowerN:
+                if( *(++bytes)==kCharLowerU && *(++bytes)==kCharLowerL && *(++bytes)==kCharLowerL){
+                    value = [NSNull null];
+                    bytes++;
+                }
+                else{
+                    *error = 1;
+                }
+                break;
+ 
+                //解析布尔真
+            case kCharLowerT:
+                if( *(++bytes)== kCharLowerR && *(++bytes)==kCharLowerU && *(++bytes)==kCharLowerE){
+                    value = [NSNumber numberWithBool:YES];
+                    bytes++;
+                }
+                else{
+                    *error = 1;
+                }
+                break;
+ 
+                //解析布尔假
+            case kCharLowerF:
+                if(*(++bytes)==kCharLowerA && *(++bytes)==kCharLowerL && *(++bytes)==kCharLowerS && *(++bytes)==kCharLowerE){
+                    value = [NSNumber numberWithBool:NO];
+                    bytes++;
+                }
+                else{
+                    *error = 1;
+                }
+                break;
+ 
+            default:
+                //解析数值
+                value = number(&bytes, error);
+                if(*error == 1){
+                    value = nil;
+                }
+                break;
+        }
+ 
+        //更新指针位置
+        *parseBytes = bytes;
+        return value;
+    }
+}
+ 
+#pragma mark - 类实体
+ 
+@implementation DYParseJson
+ 
+//解析错误代码
+@synthesize error = _error;
+ 
+#pragma mark - 实例方法
+ 
+- (id)jsonWithData:(NSData *)data{
+    const char*bytes = data.bytes;
+ 
+    return json(&bytes, &_error);
+}
+ 
+- (id)jsonWithString:(NSString *)str{
+    const char *bytes = [str cStringUsingEncoding:NSUTF8StringEncoding];
+ 
+    return json(&bytes, &_error);
+}
+ 
+#pragma mark - 类方法
+ 
+//将字符串转为json对象
++ (id)jsonWithString:(NSString *)str{
+    //保存解析错误信息
+    int error = 0;
+    //获取数符串对象字符数组
+    const char *bytes = [str cStringUsingEncoding:NSUTF8StringEncoding];
+    //执行解析
+    return json(&bytes, &error);
+}
+ 
+//将二进数据转为json对象
++ (id)jsonWithData:(NSData *)data{
+    //保存解析错误信息
+    int error = 0;
+    //获取字符数组
+    const char *bytes = data.bytes;
+ 
+    return json(&bytes, &error);
+}
+@end

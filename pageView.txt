@@ -1,0 +1,330 @@
+//
+//  DYPageView.h
+//  DYPackage
+//
+//  Created by duoyi on 12-4-26.
+//  Copyright (c) 2012年  Guangzhou Duo Yi Network Technology. All rights reserved.
+//
+ 
+#import <UIKit/UIKit.h>
+ 
+@class DYPageView;
+ 
+#pragma mark - 分页视图接口
+@protocol DYPageViewDelegate <UIScrollViewDelegate>
+ 
+@required
+ 
+// 返回总页面数
+- (NSUInteger)numberOfPageCount:(DYPageView *)pageView;
+ 
+// 获取指定分页的视图
+- (UIView *)cellForPageView:(DYPageView *)pageView;
+ 
+@optional
+ 
+//指定分页将要显示时
+- (void)pageView:(DYPageView *)pageView willDisplayCell:(id)cell atIndex:(NSInteger)index;
+ 
+ 
+// 改变页码时触发
+- (void)didChangePage:(DYPageView *)pageView;
+ 
+@end
+ 
+#pragma mark - 声明类型
+ 
+@interface DYPageView : UIScrollView
+ 
+// 当前的页面数
+@property (nonatomic) NSUInteger currentPage;
+ 
+//接口类
+@property (unsafe_unretained,nonatomic) id<DYPageViewDelegate> delegate;
+ 
+//每页之间的间距
+@property (nonatomic) CGFloat spacing;
+ 
+//刷新
+- (void)reloadData;
+ 
+@end
+
+
+
+//
+//  DYPageView.m
+//  DYPackage
+//
+//  Created by duoyi on 12-4-26.
+//  Copyright (c) 2012年  Guangzhou Duo Yi Network Technology. All rights reserved.
+//
+ 
+#import "DYPageView.h"
+ 
+@implementation DYPageView
+{
+    //原来x轴的坐标
+    float originalX;
+ 
+    // 缓存子视图
+    UIView *subviews[2];
+ 
+    //视图是否已经加载
+    BOOL isLoaded;
+ 
+    //移动方向的备用视图是否加载
+    NSUInteger sparePage;
+ 
+    // 视图可见宽度
+    float originalWidth;
+ 
+    // 总页数
+    NSUInteger pageCount;
+}
+ 
+#pragma mark - 声明属性
+ 
+//接口
+@dynamic delegate;
+ 
+//当前页
+@synthesize currentPage = _currentPage;
+ 
+//页与页之间的间距
+@synthesize spacing = _spacing;
+ 
+#pragma mark - 重载方法
+ 
+- (void)dealloc{
+    super.delegate = nil;
+ 
+    subviews[0] = nil;
+    subviews[1] = nil;
+}
+ 
+- (id)initWithFrame:(CGRect)frame{
+    //默认页与页的间距为10.0
+    _spacing = 10.0;
+ 
+    self  = [super initWithFrame:frame];
+ 
+    if(self){
+        self.backgroundColor = [UIColor blackColor];
+ 
+        self.directionalLockEnabled = YES;
+        self.canCancelContentTouches = YES;
+        self.delaysContentTouches = YES;
+ 
+        self.pagingEnabled = YES;
+ 
+        self.showsHorizontalScrollIndicator = NO;
+        //根据父视图的尺寸自动调整宽高
+        self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    }
+ 
+    return self;
+}
+ 
+// 设备偏移
+- (void)setContentOffset:(CGPoint)contentOffset{
+    super.contentOffset = contentOffset;
+ 
+    //x偏移量不改变时，不做其他处理
+    if(originalX == self.contentOffset.x){
+        return;
+    }
+ 
+    if(isLoaded){
+        int index;
+ 
+        if(originalX < contentOffset.x){
+ 
+            index = (self.contentOffset.x  + self.width)/ self.width;
+ 
+            if(index >= pageCount - 1){
+                index = pageCount - 1;
+            }
+        }
+        else if(originalX > contentOffset.x){
+            if(_currentPage <= 0){
+                index = 0;
+            }
+            else{
+                index = self.contentOffset.x / self.width;
+            }
+        }
+        else{
+            index = _currentPage;
+        }
+ 
+        float pageOffset = contentOffset.x / self.width;
+ 
+        //判断当前页是改变
+        if(_currentPage != pageOffset && pageOffset == (int)pageOffset){
+            _currentPage = pageOffset;
+ 
+            //通知委托，页码已经发生变化
+            if([self.delegate respondsToSelector:@selector(didChangePage:)]){
+                [self.delegate didChangePage:self];
+            }
+        }
+        else if(index != sparePage){
+            sparePage = index;
+            [self subviewAtIndex:index];
+        }
+    }
+    originalX = contentOffset.x;
+}
+ 
+// 设置显示的框架
+- (void)setFrame:(CGRect)frame{
+    frame.size.width += self.spacing;
+    super.frame = frame;
+ 
+    if(originalWidth + _spacing !=  self.width || originalWidth == 0){
+        originalWidth = frame.size.width - self.spacing;
+ 
+        if(isLoaded){
+            [self reloadData];
+        }
+    }
+}
+ 
+// 获取宽度
+- (CGRect)frame{
+    CGRect rect = super.frame;
+ 
+    rect.size.width -= _spacing;
+ 
+    return rect;
+}
+ 
+#pragma mark - 私有方法
+// 获取当前page视图
+- (UIView *)subviewAtIndex:(NSUInteger)index{
+    int i = index % 2;
+ 
+    //页视图
+    UIView *view = subviews[i];
+ 
+    //如果视图不存在，则创建
+    if(view == nil){
+        //调用委托创建视图
+        view = [self.delegate cellForPageView:self];
+        view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        [self addSubview:view];
+        subviews[i] = view;
+ 
+        view.frame = CGRectMake(self.width  * index, 0, originalWidth, self.height);
+        if([self.delegate respondsToSelector:@selector(pageView:willDisplayCell:atIndex:)]){
+            [self.delegate pageView:self willDisplayCell:view atIndex:index];
+        }
+    }
+    else if(index * self.width != view.frame.origin.x || isLoaded == NO){
+        //更新视图框架
+        view.frame = CGRectMake(self.width  * index, 0, originalWidth, self.height);
+ 
+        //通知视图将要被显示
+        if([self.delegate respondsToSelector:@selector(pageView:willDisplayCell:atIndex:)]){
+            [self.delegate pageView:self willDisplayCell:view atIndex:index];
+        }
+    }
+ 
+    return view;
+}
+ 
+// 设置当前页可见
+- (void)visibleOffset{
+    //将当前视图追加到父视图中
+    [self subviewAtIndex:_currentPage];
+    //修改偏移量至可以范围
+    super.contentOffset = CGPointMake(self.width  * _currentPage, 0);
+    //通知委托，当前页面已经发生改变
+    if([self.delegate respondsToSelector:@selector(didChangePage:)]){
+        [self.delegate didChangePage:self];
+    }
+}
+ 
+// 获取当前的宽度
+- (CGFloat)width{
+    return super.frame.size.width;
+}
+ 
+// 获取当高度
+- (CGFloat)height{
+    return super.frame.size.height;
+}
+ 
+#pragma mark - 公开方法
+ 
+// 设置视图委托对象
+- (void)setDelegate:(id<DYPageViewDelegate>)delegate{
+    if(delegate != super.delegate){
+        super.delegate = delegate;
+        [self reloadData];
+    }
+}
+ 
+// 获取视图委托对象
+- (id<DYPageViewDelegate>)delegate{
+    return (id<DYPageViewDelegate>)super.delegate;
+}
+ 
+// 设置当前页
+- (void)setCurrentPage:(NSUInteger)currentPage{
+    if(_currentPage != currentPage){
+        _currentPage = currentPage;
+        if(isLoaded){
+            //修改偏移范围，使当前页可见
+            [self visibleOffset];
+        }
+    }
+}
+ 
+//重新设置间距
+- (void)setSpacing:(CGFloat)spacing{
+    if(spacing != _spacing){
+        CGRect rect = self.frame;
+        _spacing = spacing;
+        self.frame = rect;
+    }
+}
+ 
+// 重新加载视图
+- (void)reloadData{
+ 
+    isLoaded = YES;
+ 
+    if(self.width == 0){
+        return;
+    }
+ 
+    //获取总页数
+    pageCount = [self.delegate numberOfPageCount:self];
+ 
+ 
+    if(_currentPage >= pageCount){
+        _currentPage = pageCount - 1;
+    }
+ 
+    //最后一个元素不可见
+    CGRect rect = CGRectMake(-originalWidth, 0, originalWidth, self.height);
+    subviews[0].frame = rect;
+    subviews[1].frame = rect;
+ 
+ 
+    //设置视图可拖动范围
+    self.contentSize = CGSizeMake(self.width  * pageCount, 0);
+ 
+    if(pageCount > 0){
+        //修改偏移范围，使当前页可见
+        [self visibleOffset];
+        sparePage = -1;
+    }
+    else{
+        _currentPage = 0;
+    }
+ 
+}
+@end

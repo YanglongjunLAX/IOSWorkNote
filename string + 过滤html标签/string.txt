@@ -1,0 +1,125 @@
+#import <Foundation/Foundation.h>
+ 
+@interface NSString (ExtString)
+ 
+/*
+ * 打开URL
+ */
+-(void)openURL;
+ 
+/*
+ * 是否能打开URL
+ */
+-(BOOL)canOpenURL;
+ 
+/*
+ * 通过图片名获取图片(不使用缓存)
+ */
+-(UIImage*)getImageNocache;
+ 
+-(UIImage*)getImageNocacheWithType:(NSString*)type;
+ 
+/*
+ * 通过图片名获取图片(使用缓存)
+ */
+-(UIImage*)getImage;
+ 
+ 
+/*
+ * URL编码
+ */
+- (NSString *)URLEncodedString;
+ 
+/*
+ * 是否匹配正式表达式
+ */
+- (BOOL)isMatch:(NSString *)regex;
+ 
+@end
+
+
+#import "NSString+ExtString.h"
+#import "UIImage+ExtImage.h"
+ 
+@implementation NSString (ExtString)
+ 
+/*
+ * 打开URL
+ */
+-(void)openURL
+{
+    NSURL* url = [NSURL URLWithString:self];
+    [[UIApplication sharedApplication] openURL:url];
+}
+ 
+/*
+ * 是否能打开URL
+ */
+-(BOOL)canOpenURL
+{
+    NSURL* url = [NSURL URLWithString:self];
+    return [[UIApplication sharedApplication] canOpenURL:url];
+}
+ 
+/*
+ * 通过图片名获取图片(不使用缓存)
+ */
+-(UIImage*)getImageNocache
+{
+    return [UIImage imageWithFileName:self];
+}
+ 
+/*
+ * 通过图片名获取图片(不使用缓存)
+ */
+-(UIImage*)getImageNocacheWithType:(NSString*)type
+{
+    return [UIImage imageWithFileName:self type:type];
+}
+ 
+/*
+ * 通过图片名获取图片(使用缓存)
+ */
+-(UIImage*)getImage
+{
+    return [UIImage imageNamed:self];
+}
+ 
+/*
+ * URL编码
+ */
+- (NSString *)URLEncodedString
+{
+    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)[self mutableCopy], NULL, CFSTR("?=,!$&'()*+;@?\n\"<>#\t :/"), kCFStringEncodingUTF8));
+}
+ 
+/*
+ * 是否匹配正式表达式
+ */
+- (BOOL)isMatch:(NSString *)regex{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    return  [predicate evaluateWithObject:self];
+}
+@end
+
+//过滤html标签方法
+//过滤html标签(应该将次代码封装起来)
+-(NSString*)filterHtmlTag:(NSString*)html
+{
+    NSString *result = nil;
+    NSRange allowTagStartRange = [html rangeOfString:@"<"];
+    
+    if (allowTagStartRange.location!=NSNotFound)
+    {
+        NSRange allowTagEndRange = [html rangeOfString:@">"];
+        
+        result = [html stringByReplacingCharactersInRange:NSMakeRange(allowTagStartRange.location, allowTagEndRange.location - allowTagStartRange.location + 1) withString:@""];
+        
+        return  [self filterHtmlTag:result];
+    }else
+    {
+        result = [html stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@""];  // 过滤&nbsp等标签
+    }
+    return result;
+}
+

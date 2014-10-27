@@ -1,0 +1,681 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		53C67935184501030030C553 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893D8F7F18262EF500E8A00C /* Carbon.framework */; };
+		893D8F8018262EF500E8A00C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893D8F7F18262EF500E8A00C /* Carbon.framework */; };
+		D114BEE0179644D00043FA65 /* NSString+PDRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = D114BEDE179644D00043FA65 /* NSString+PDRegex.m */; };
+		D114BEE3179644FA0043FA65 /* NSTextView+VVTextGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = D114BEE2179644FA0043FA65 /* NSTextView+VVTextGetter.m */; };
+		D11C542D17999D9000D3DE38 /* VVArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = D11C542B17999D9000D3DE38 /* VVArgument.m */; };
+		D124614717AC16820095F9D6 /* VVDocumenterSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D124614317AC16820095F9D6 /* VVDocumenterSetting.m */; };
+		D124614817AC16820095F9D6 /* VVDSettingPanelWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D124614517AC16820095F9D6 /* VVDSettingPanelWindowController.m */; };
+		D124614917AC16820095F9D6 /* VVDSettingPanelWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D124614617AC16820095F9D6 /* VVDSettingPanelWindowController.xib */; };
+		D14070C418CE8819009B0EED /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D14070C318CE8819009B0EED /* XCTest.framework */; };
+		D14380F7179551B900C829CE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D14380F6179551B900C829CE /* Cocoa.framework */; };
+		D1438101179551B900C829CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D14380FF179551B900C829CE /* InfoPlist.strings */; };
+		D16AFCD41796E088006719AA /* VVBaseCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCD31796E088006719AA /* VVBaseCommenter.m */; };
+		D16AFCD71796E09E006719AA /* VVPropertyCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCD61796E09E006719AA /* VVPropertyCommenter.m */; };
+		D16AFCDA1796E0AC006719AA /* VVMethodCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCD91796E0AC006719AA /* VVMethodCommenter.m */; };
+		D16AFCDD1796E0B9006719AA /* VVFunctionCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCDC1796E0B9006719AA /* VVFunctionCommenter.m */; };
+		D16AFCE01796E0C0006719AA /* VVMacroCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCDF1796E0C0006719AA /* VVMacroCommenter.m */; };
+		D16AFCE31796E0C9006719AA /* VVStructCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE21796E0C9006719AA /* VVStructCommenter.m */; };
+		D16AFCE61796E0D0006719AA /* VVEnumCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE51796E0D0006719AA /* VVEnumCommenter.m */; };
+		D16AFCE91796E0D6006719AA /* VVVariableCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE81796E0D6006719AA /* VVVariableCommenter.m */; };
+		D17B50CA179A34C400B11773 /* VVBaseCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCD31796E088006719AA /* VVBaseCommenter.m */; };
+		D18224DC17956290001A5E8A /* VVDocumenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D16917DE17955C8D0036C06B /* VVDocumenterManager.m */; };
+		D1986F74179A12BD00EA6643 /* CommenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1986F73179A12BD00EA6643 /* CommenterTests.m */; };
+		D1AC3B8F1796DB070063A484 /* VVDocumenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1AC3B8E1796DB070063A484 /* VVDocumenter.m */; };
+		D1AE501C179A161A0069411A /* VVArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = D11C542B17999D9000D3DE38 /* VVArgument.m */; };
+		D1B316D6189A2AA700420A6E /* VVMethodTestsCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1B316D5189A2AA700420A6E /* VVMethodTestsCode.plist */; };
+		D1B316DB189A2C3B00420A6E /* VVDSettingPanelWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D124614517AC16820095F9D6 /* VVDSettingPanelWindowController.m */; };
+		D1B316DC189A2C3B00420A6E /* VVKeyboardEventSender.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D66CA717A2AEF000E62F99 /* VVKeyboardEventSender.m */; };
+		D1B316DD189A2C3B00420A6E /* VVDocumenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D16917DE17955C8D0036C06B /* VVDocumenterManager.m */; };
+		D1B316DE189A2C3B00420A6E /* VVDocumenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1AC3B8E1796DB070063A484 /* VVDocumenter.m */; };
+		D1B316DF189A2C7800420A6E /* VVPropertyCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCD61796E09E006719AA /* VVPropertyCommenter.m */; };
+		D1B316E0189A2C7800420A6E /* VVMethodCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCD91796E0AC006719AA /* VVMethodCommenter.m */; };
+		D1B316E1189A2C7800420A6E /* VVFunctionCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCDC1796E0B9006719AA /* VVFunctionCommenter.m */; };
+		D1B316E2189A2C7800420A6E /* VVMacroCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCDF1796E0C0006719AA /* VVMacroCommenter.m */; };
+		D1B316E3189A2C7800420A6E /* VVStructCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE21796E0C9006719AA /* VVStructCommenter.m */; };
+		D1B316E4189A2C7800420A6E /* VVEnumCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE51796E0D0006719AA /* VVEnumCommenter.m */; };
+		D1B316E5189A2C7800420A6E /* VVVariableCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE81796E0D6006719AA /* VVVariableCommenter.m */; };
+		D1C462DD17999C2000EB7B23 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D14380F6179551B900C829CE /* Cocoa.framework */; };
+		D1C462E317999C2000EB7B23 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1C462E117999C2000EB7B23 /* InfoPlist.strings */; };
+		D1C462E617999C2000EB7B23 /* VVDocumenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C462E517999C2000EB7B23 /* VVDocumenterTests.m */; };
+		D1C462ED17999C9A00EB7B23 /* VVTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C462EC17999C9A00EB7B23 /* VVTestHelper.m */; };
+		D1C462F117999CA200EB7B23 /* SyntaxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C462F017999CA200EB7B23 /* SyntaxTests.m */; };
+		D1C462F517999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */; };
+		D1C462F617999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */; };
+		D1C462F717999D0600EB7B23 /* NSString+PDRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = D114BEDE179644D00043FA65 /* NSString+PDRegex.m */; };
+		D1D66CA817A2AEF000E62F99 /* VVKeyboardEventSender.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D66CA717A2AEF000E62F99 /* VVKeyboardEventSender.m */; };
+		E19E073A17B57D2800F048C2 /* VVDocumenterSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D124614317AC16820095F9D6 /* VVDocumenterSetting.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		893D8F7F18262EF500E8A00C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		D114BEDD179644D00043FA65 /* NSString+PDRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PDRegex.h"; sourceTree = "<group>"; };
+		D114BEDE179644D00043FA65 /* NSString+PDRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PDRegex.m"; sourceTree = "<group>"; };
+		D114BEE1179644FA0043FA65 /* NSTextView+VVTextGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+VVTextGetter.h"; sourceTree = "<group>"; };
+		D114BEE2179644FA0043FA65 /* NSTextView+VVTextGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+VVTextGetter.m"; sourceTree = "<group>"; };
+		D11C542A17999D9000D3DE38 /* VVArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVArgument.h; sourceTree = "<group>"; };
+		D11C542B17999D9000D3DE38 /* VVArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVArgument.m; sourceTree = "<group>"; };
+		D11C542C17999D9000D3DE38 /* VVCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVCommenter.h; sourceTree = "<group>"; };
+		D124614217AC16820095F9D6 /* VVDocumenterSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VVDocumenterSetting.h; path = "VVDocumenter-Xcode/Setting/VVDocumenterSetting.h"; sourceTree = SOURCE_ROOT; };
+		D124614317AC16820095F9D6 /* VVDocumenterSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VVDocumenterSetting.m; path = "VVDocumenter-Xcode/Setting/VVDocumenterSetting.m"; sourceTree = SOURCE_ROOT; };
+		D124614417AC16820095F9D6 /* VVDSettingPanelWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VVDSettingPanelWindowController.h; path = "VVDocumenter-Xcode/Setting/VVDSettingPanelWindowController.h"; sourceTree = SOURCE_ROOT; };
+		D124614517AC16820095F9D6 /* VVDSettingPanelWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VVDSettingPanelWindowController.m; path = "VVDocumenter-Xcode/Setting/VVDSettingPanelWindowController.m"; sourceTree = SOURCE_ROOT; };
+		D124614617AC16820095F9D6 /* VVDSettingPanelWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VVDSettingPanelWindowController.xib; path = "VVDocumenter-Xcode/Setting/VVDSettingPanelWindowController.xib"; sourceTree = SOURCE_ROOT; };
+		D14070C318CE8819009B0EED /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D14380F3179551B900C829CE /* VVDocumenter-Xcode.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VVDocumenter-Xcode.xcplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D14380F6179551B900C829CE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D14380F9179551B900C829CE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D14380FA179551B900C829CE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D14380FB179551B900C829CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D14380FE179551B900C829CE /* VVDocumenter-Xcode-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VVDocumenter-Xcode-Info.plist"; sourceTree = "<group>"; };
+		D1438100179551B900C829CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D1438102179551B900C829CE /* VVDocumenter-Xcode-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VVDocumenter-Xcode-Prefix.pch"; sourceTree = "<group>"; };
+		D16917DD17955C8D0036C06B /* VVDocumenterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VVDocumenterManager.h; sourceTree = "<group>"; };
+		D16917DE17955C8D0036C06B /* VVDocumenterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVDocumenterManager.m; sourceTree = "<group>"; };
+		D16AFCD21796E088006719AA /* VVBaseCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVBaseCommenter.h; sourceTree = "<group>"; };
+		D16AFCD31796E088006719AA /* VVBaseCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVBaseCommenter.m; sourceTree = "<group>"; };
+		D16AFCD51796E09E006719AA /* VVPropertyCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVPropertyCommenter.h; sourceTree = "<group>"; };
+		D16AFCD61796E09E006719AA /* VVPropertyCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVPropertyCommenter.m; sourceTree = "<group>"; };
+		D16AFCD81796E0AC006719AA /* VVMethodCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMethodCommenter.h; sourceTree = "<group>"; };
+		D16AFCD91796E0AC006719AA /* VVMethodCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMethodCommenter.m; sourceTree = "<group>"; };
+		D16AFCDB1796E0B9006719AA /* VVFunctionCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVFunctionCommenter.h; sourceTree = "<group>"; };
+		D16AFCDC1796E0B9006719AA /* VVFunctionCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVFunctionCommenter.m; sourceTree = "<group>"; };
+		D16AFCDE1796E0C0006719AA /* VVMacroCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMacroCommenter.h; sourceTree = "<group>"; };
+		D16AFCDF1796E0C0006719AA /* VVMacroCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMacroCommenter.m; sourceTree = "<group>"; };
+		D16AFCE11796E0C9006719AA /* VVStructCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVStructCommenter.h; sourceTree = "<group>"; };
+		D16AFCE21796E0C9006719AA /* VVStructCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVStructCommenter.m; sourceTree = "<group>"; };
+		D16AFCE41796E0D0006719AA /* VVEnumCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVEnumCommenter.h; sourceTree = "<group>"; };
+		D16AFCE51796E0D0006719AA /* VVEnumCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVEnumCommenter.m; sourceTree = "<group>"; };
+		D16AFCE71796E0D6006719AA /* VVVariableCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVVariableCommenter.h; sourceTree = "<group>"; };
+		D16AFCE81796E0D6006719AA /* VVVariableCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVVariableCommenter.m; sourceTree = "<group>"; };
+		D1986F72179A12BD00EA6643 /* CommenterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommenterTests.h; sourceTree = "<group>"; };
+		D1986F73179A12BD00EA6643 /* CommenterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommenterTests.m; sourceTree = "<group>"; };
+		D1AC3B8D1796DB070063A484 /* VVDocumenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDocumenter.h; sourceTree = "<group>"; };
+		D1AC3B8E1796DB070063A484 /* VVDocumenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDocumenter.m; sourceTree = "<group>"; };
+		D1B316D5189A2AA700420A6E /* VVMethodTestsCode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = VVMethodTestsCode.plist; sourceTree = "<group>"; };
+		D1C462DA17999C2000EB7B23 /* VVDocumenterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VVDocumenterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1C462E017999C2000EB7B23 /* VVDocumenterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VVDocumenterTests-Info.plist"; sourceTree = "<group>"; };
+		D1C462E217999C2000EB7B23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D1C462E517999C2000EB7B23 /* VVDocumenterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVDocumenterTests.m; sourceTree = "<group>"; };
+		D1C462E717999C2000EB7B23 /* VVDocumenterTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VVDocumenterTests-Prefix.pch"; sourceTree = "<group>"; };
+		D1C462EB17999C9A00EB7B23 /* VVTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVTestHelper.h; sourceTree = "<group>"; };
+		D1C462EC17999C9A00EB7B23 /* VVTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVTestHelper.m; sourceTree = "<group>"; };
+		D1C462EF17999CA200EB7B23 /* SyntaxTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyntaxTests.h; sourceTree = "<group>"; };
+		D1C462F017999CA200EB7B23 /* SyntaxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyntaxTests.m; sourceTree = "<group>"; };
+		D1C462F317999CEC00EB7B23 /* NSString+VVSyntax.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+VVSyntax.h"; sourceTree = "<group>"; };
+		D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+VVSyntax.m"; sourceTree = "<group>"; };
+		D1D66CA617A2AEF000E62F99 /* VVKeyboardEventSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVKeyboardEventSender.h; sourceTree = "<group>"; };
+		D1D66CA717A2AEF000E62F99 /* VVKeyboardEventSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVKeyboardEventSender.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D14380F0179551B900C829CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				893D8F8018262EF500E8A00C /* Carbon.framework in Frameworks */,
+				D14380F7179551B900C829CE /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1C462D617999C2000EB7B23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D14070C418CE8819009B0EED /* XCTest.framework in Frameworks */,
+				53C67935184501030030C553 /* Carbon.framework in Frameworks */,
+				D1C462DD17999C2000EB7B23 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D114BEDB179644D00043FA65 /* OCCategory */ = {
+			isa = PBXGroup;
+			children = (
+				D1C462F217999CEC00EB7B23 /* NSString+VVSyntax */,
+				D114BEDC179644D00043FA65 /* NSString+PDRegex */,
+				D114BEDF179644D00043FA65 /* NSTextView+VVTextGetter */,
+			);
+			path = OCCategory;
+			sourceTree = "<group>";
+		};
+		D114BEDC179644D00043FA65 /* NSString+PDRegex */ = {
+			isa = PBXGroup;
+			children = (
+				D114BEDD179644D00043FA65 /* NSString+PDRegex.h */,
+				D114BEDE179644D00043FA65 /* NSString+PDRegex.m */,
+			);
+			path = "NSString+PDRegex";
+			sourceTree = "<group>";
+		};
+		D114BEDF179644D00043FA65 /* NSTextView+VVTextGetter */ = {
+			isa = PBXGroup;
+			children = (
+				D114BEE1179644FA0043FA65 /* NSTextView+VVTextGetter.h */,
+				D114BEE2179644FA0043FA65 /* NSTextView+VVTextGetter.m */,
+			);
+			path = "NSTextView+VVTextGetter";
+			sourceTree = "<group>";
+		};
+		D14380EA179551B900C829CE = {
+			isa = PBXGroup;
+			children = (
+				D14380FC179551B900C829CE /* VVDocumenter-Xcode */,
+				D1C462DE17999C2000EB7B23 /* VVDocumenterTests */,
+				D14380F5179551B900C829CE /* Frameworks */,
+				D14380F4179551B900C829CE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D14380F4179551B900C829CE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D14380F3179551B900C829CE /* VVDocumenter-Xcode.xcplugin */,
+				D1C462DA17999C2000EB7B23 /* VVDocumenterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D14380F5179551B900C829CE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D14070C318CE8819009B0EED /* XCTest.framework */,
+				893D8F7F18262EF500E8A00C /* Carbon.framework */,
+				D14380F6179551B900C829CE /* Cocoa.framework */,
+				D14380F8179551B900C829CE /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D14380F8179551B900C829CE /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D14380F9179551B900C829CE /* AppKit.framework */,
+				D14380FA179551B900C829CE /* CoreData.framework */,
+				D14380FB179551B900C829CE /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D14380FC179551B900C829CE /* VVDocumenter-Xcode */ = {
+			isa = PBXGroup;
+			children = (
+				D193B8C917AC0C2400D2D76A /* Setting */,
+				D1D66CA517A2AED700E62F99 /* KeyboardHelper */,
+				D16AFCD11796E068006719AA /* Commenter */,
+				D114BEDB179644D00043FA65 /* OCCategory */,
+				D14380FD179551B900C829CE /* Supporting Files */,
+				D16917DD17955C8D0036C06B /* VVDocumenterManager.h */,
+				D16917DE17955C8D0036C06B /* VVDocumenterManager.m */,
+				D1AC3B8D1796DB070063A484 /* VVDocumenter.h */,
+				D1AC3B8E1796DB070063A484 /* VVDocumenter.m */,
+			);
+			path = "VVDocumenter-Xcode";
+			sourceTree = "<group>";
+		};
+		D14380FD179551B900C829CE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D14380FE179551B900C829CE /* VVDocumenter-Xcode-Info.plist */,
+				D1438102179551B900C829CE /* VVDocumenter-Xcode-Prefix.pch */,
+				D14380FF179551B900C829CE /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D16AFCD11796E068006719AA /* Commenter */ = {
+			isa = PBXGroup;
+			children = (
+				D11C542C17999D9000D3DE38 /* VVCommenter.h */,
+				D11C542A17999D9000D3DE38 /* VVArgument.h */,
+				D11C542B17999D9000D3DE38 /* VVArgument.m */,
+				D16AFCD21796E088006719AA /* VVBaseCommenter.h */,
+				D16AFCD31796E088006719AA /* VVBaseCommenter.m */,
+				D16AFCD51796E09E006719AA /* VVPropertyCommenter.h */,
+				D16AFCD61796E09E006719AA /* VVPropertyCommenter.m */,
+				D16AFCD81796E0AC006719AA /* VVMethodCommenter.h */,
+				D16AFCD91796E0AC006719AA /* VVMethodCommenter.m */,
+				D16AFCDB1796E0B9006719AA /* VVFunctionCommenter.h */,
+				D16AFCDC1796E0B9006719AA /* VVFunctionCommenter.m */,
+				D16AFCDE1796E0C0006719AA /* VVMacroCommenter.h */,
+				D16AFCDF1796E0C0006719AA /* VVMacroCommenter.m */,
+				D16AFCE11796E0C9006719AA /* VVStructCommenter.h */,
+				D16AFCE21796E0C9006719AA /* VVStructCommenter.m */,
+				D16AFCE41796E0D0006719AA /* VVEnumCommenter.h */,
+				D16AFCE51796E0D0006719AA /* VVEnumCommenter.m */,
+				D16AFCE71796E0D6006719AA /* VVVariableCommenter.h */,
+				D16AFCE81796E0D6006719AA /* VVVariableCommenter.m */,
+			);
+			path = Commenter;
+			sourceTree = "<group>";
+		};
+		D193B8C917AC0C2400D2D76A /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				D124614217AC16820095F9D6 /* VVDocumenterSetting.h */,
+				D124614317AC16820095F9D6 /* VVDocumenterSetting.m */,
+				D124614417AC16820095F9D6 /* VVDSettingPanelWindowController.h */,
+				D124614517AC16820095F9D6 /* VVDSettingPanelWindowController.m */,
+				D124614617AC16820095F9D6 /* VVDSettingPanelWindowController.xib */,
+			);
+			name = Setting;
+			path = SettingPanel;
+			sourceTree = "<group>";
+		};
+		D1986F71179A12BD00EA6643 /* CommenterTests */ = {
+			isa = PBXGroup;
+			children = (
+				D1986F72179A12BD00EA6643 /* CommenterTests.h */,
+				D1986F73179A12BD00EA6643 /* CommenterTests.m */,
+			);
+			path = CommenterTests;
+			sourceTree = "<group>";
+		};
+		D1B316D2189A2A5900420A6E /* DocumenterTests */ = {
+			isa = PBXGroup;
+			children = (
+				D1B316D5189A2AA700420A6E /* VVMethodTestsCode.plist */,
+			);
+			path = DocumenterTests;
+			sourceTree = "<group>";
+		};
+		D1C462DE17999C2000EB7B23 /* VVDocumenterTests */ = {
+			isa = PBXGroup;
+			children = (
+				D1B316D2189A2A5900420A6E /* DocumenterTests */,
+				D1986F71179A12BD00EA6643 /* CommenterTests */,
+				D1C462EE17999CA200EB7B23 /* SyntaxTests */,
+				D1C462EB17999C9A00EB7B23 /* VVTestHelper.h */,
+				D1C462EC17999C9A00EB7B23 /* VVTestHelper.m */,
+				D1C462E517999C2000EB7B23 /* VVDocumenterTests.m */,
+				D1C462DF17999C2000EB7B23 /* Supporting Files */,
+			);
+			path = VVDocumenterTests;
+			sourceTree = "<group>";
+		};
+		D1C462DF17999C2000EB7B23 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D1C462E017999C2000EB7B23 /* VVDocumenterTests-Info.plist */,
+				D1C462E117999C2000EB7B23 /* InfoPlist.strings */,
+				D1C462E717999C2000EB7B23 /* VVDocumenterTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D1C462EE17999CA200EB7B23 /* SyntaxTests */ = {
+			isa = PBXGroup;
+			children = (
+				D1C462EF17999CA200EB7B23 /* SyntaxTests.h */,
+				D1C462F017999CA200EB7B23 /* SyntaxTests.m */,
+			);
+			path = SyntaxTests;
+			sourceTree = "<group>";
+		};
+		D1C462F217999CEC00EB7B23 /* NSString+VVSyntax */ = {
+			isa = PBXGroup;
+			children = (
+				D1C462F317999CEC00EB7B23 /* NSString+VVSyntax.h */,
+				D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */,
+			);
+			path = "NSString+VVSyntax";
+			sourceTree = "<group>";
+		};
+		D1D66CA517A2AED700E62F99 /* KeyboardHelper */ = {
+			isa = PBXGroup;
+			children = (
+				D1D66CA617A2AEF000E62F99 /* VVKeyboardEventSender.h */,
+				D1D66CA717A2AEF000E62F99 /* VVKeyboardEventSender.m */,
+			);
+			path = KeyboardHelper;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D14380F2179551B900C829CE /* VVDocumenter-Xcode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1438105179551B900C829CE /* Build configuration list for PBXNativeTarget "VVDocumenter-Xcode" */;
+			buildPhases = (
+				D14380EF179551B900C829CE /* Sources */,
+				D14380F0179551B900C829CE /* Frameworks */,
+				D14380F1179551B900C829CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "VVDocumenter-Xcode";
+			productName = "VVDocumenter-Xcode";
+			productReference = D14380F3179551B900C829CE /* VVDocumenter-Xcode.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+		D1C462D917999C2000EB7B23 /* VVDocumenterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1C462EA17999C2000EB7B23 /* Build configuration list for PBXNativeTarget "VVDocumenterTests" */;
+			buildPhases = (
+				D1C462D517999C2000EB7B23 /* Sources */,
+				D1C462D617999C2000EB7B23 /* Frameworks */,
+				D1C462D717999C2000EB7B23 /* Resources */,
+				D1C462D817999C2000EB7B23 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VVDocumenterTests;
+			productName = VVDocumenterTests;
+			productReference = D1C462DA17999C2000EB7B23 /* VVDocumenterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D14380EB179551B900C829CE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastTestingUpgradeCheck = 0510;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "OneV's Den";
+			};
+			buildConfigurationList = D14380EE179551B900C829CE /* Build configuration list for PBXProject "VVDocumenter-Xcode" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D14380EA179551B900C829CE;
+			productRefGroup = D14380F4179551B900C829CE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D14380F2179551B900C829CE /* VVDocumenter-Xcode */,
+				D1C462D917999C2000EB7B23 /* VVDocumenterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D14380F1179551B900C829CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1438101179551B900C829CE /* InfoPlist.strings in Resources */,
+				D124614917AC16820095F9D6 /* VVDSettingPanelWindowController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1C462D717999C2000EB7B23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B316D6189A2AA700420A6E /* VVMethodTestsCode.plist in Resources */,
+				D1C462E317999C2000EB7B23 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D1C462D817999C2000EB7B23 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D14380EF179551B900C829CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D18224DC17956290001A5E8A /* VVDocumenterManager.m in Sources */,
+				D114BEE0179644D00043FA65 /* NSString+PDRegex.m in Sources */,
+				D114BEE3179644FA0043FA65 /* NSTextView+VVTextGetter.m in Sources */,
+				D1AC3B8F1796DB070063A484 /* VVDocumenter.m in Sources */,
+				D16AFCD41796E088006719AA /* VVBaseCommenter.m in Sources */,
+				D16AFCD71796E09E006719AA /* VVPropertyCommenter.m in Sources */,
+				D16AFCDA1796E0AC006719AA /* VVMethodCommenter.m in Sources */,
+				D16AFCDD1796E0B9006719AA /* VVFunctionCommenter.m in Sources */,
+				D16AFCE01796E0C0006719AA /* VVMacroCommenter.m in Sources */,
+				D16AFCE31796E0C9006719AA /* VVStructCommenter.m in Sources */,
+				D16AFCE61796E0D0006719AA /* VVEnumCommenter.m in Sources */,
+				D16AFCE91796E0D6006719AA /* VVVariableCommenter.m in Sources */,
+				D1C462F517999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */,
+				D11C542D17999D9000D3DE38 /* VVArgument.m in Sources */,
+				D1D66CA817A2AEF000E62F99 /* VVKeyboardEventSender.m in Sources */,
+				D124614717AC16820095F9D6 /* VVDocumenterSetting.m in Sources */,
+				D124614817AC16820095F9D6 /* VVDSettingPanelWindowController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1C462D517999C2000EB7B23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B316DF189A2C7800420A6E /* VVPropertyCommenter.m in Sources */,
+				D1B316E0189A2C7800420A6E /* VVMethodCommenter.m in Sources */,
+				D1B316E1189A2C7800420A6E /* VVFunctionCommenter.m in Sources */,
+				D1B316E2189A2C7800420A6E /* VVMacroCommenter.m in Sources */,
+				D1B316E3189A2C7800420A6E /* VVStructCommenter.m in Sources */,
+				D1B316E4189A2C7800420A6E /* VVEnumCommenter.m in Sources */,
+				D1B316E5189A2C7800420A6E /* VVVariableCommenter.m in Sources */,
+				D1B316DB189A2C3B00420A6E /* VVDSettingPanelWindowController.m in Sources */,
+				D1B316DC189A2C3B00420A6E /* VVKeyboardEventSender.m in Sources */,
+				D1B316DD189A2C3B00420A6E /* VVDocumenterManager.m in Sources */,
+				D1B316DE189A2C3B00420A6E /* VVDocumenter.m in Sources */,
+				D17B50CA179A34C400B11773 /* VVBaseCommenter.m in Sources */,
+				D1AE501C179A161A0069411A /* VVArgument.m in Sources */,
+				D1C462F717999D0600EB7B23 /* NSString+PDRegex.m in Sources */,
+				D1C462E617999C2000EB7B23 /* VVDocumenterTests.m in Sources */,
+				D1C462ED17999C9A00EB7B23 /* VVTestHelper.m in Sources */,
+				D1C462F117999CA200EB7B23 /* SyntaxTests.m in Sources */,
+				D1C462F617999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */,
+				D1986F74179A12BD00EA6643 /* CommenterTests.m in Sources */,
+				E19E073A17B57D2800F048C2 /* VVDocumenterSetting.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D14380FF179551B900C829CE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1438100179551B900C829CE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D1C462E117999C2000EB7B23 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1C462E217999C2000EB7B23 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D1438103179551B900C829CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D1438104179551B900C829CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D1438106179551B900C829CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "${HOME}";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VVDocumenter-Xcode/VVDocumenter-Xcode-Prefix.pch";
+				INFOPLIST_FILE = "VVDocumenter-Xcode/VVDocumenter-Xcode-Info.plist";
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Debug;
+		};
+		D1438107179551B900C829CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "${HOME}";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VVDocumenter-Xcode/VVDocumenter-Xcode-Prefix.pch";
+				INFOPLIST_FILE = "VVDocumenter-Xcode/VVDocumenter-Xcode-Info.plist";
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Release;
+		};
+		D1C462E817999C2000EB7B23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_DIR)/../SharedFrameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VVDocumenterTests/VVDocumenterTests-Prefix.pch";
+				INFOPLIST_FILE = "VVDocumenterTests/VVDocumenterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D1C462E917999C2000EB7B23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_DIR)/../SharedFrameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VVDocumenterTests/VVDocumenterTests-Prefix.pch";
+				INFOPLIST_FILE = "VVDocumenterTests/VVDocumenterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D14380EE179551B900C829CE /* Build configuration list for PBXProject "VVDocumenter-Xcode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1438103179551B900C829CE /* Debug */,
+				D1438104179551B900C829CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1438105179551B900C829CE /* Build configuration list for PBXNativeTarget "VVDocumenter-Xcode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1438106179551B900C829CE /* Debug */,
+				D1438107179551B900C829CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1C462EA17999C2000EB7B23 /* Build configuration list for PBXNativeTarget "VVDocumenterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1C462E817999C2000EB7B23 /* Debug */,
+				D1C462E917999C2000EB7B23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D14380EB179551B900C829CE /* Project object */;
+}

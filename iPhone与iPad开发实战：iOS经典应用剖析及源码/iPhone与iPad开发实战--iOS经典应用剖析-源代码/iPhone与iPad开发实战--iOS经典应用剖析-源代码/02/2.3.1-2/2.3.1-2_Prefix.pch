@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the '2.3.1-2' target in the '2.3.1-2' project.
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

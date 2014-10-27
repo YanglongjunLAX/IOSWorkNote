@@ -1,0 +1,382 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		010B3A1719FA2CD200EF6810 /* CoreTextMagazineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 010B3A1119FA2CD200EF6810 /* CoreTextMagazineViewController.xib */; };
+		010B3A1819FA2CD200EF6810 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 010B3A1319FA2CD200EF6810 /* InfoPlist.strings */; };
+		010B3A1919FA2CD200EF6810 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 010B3A1519FA2CD200EF6810 /* MainWindow.xib */; };
+		9CEC158F13F3D04B00C3B9D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEC158E13F3D04B00C3B9D4 /* UIKit.framework */; };
+		9CEC159113F3D04B00C3B9D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEC159013F3D04B00C3B9D4 /* Foundation.framework */; };
+		9CEC159313F3D04B00C3B9D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEC159213F3D04B00C3B9D4 /* CoreGraphics.framework */; };
+		9CEC159913F3D04B00C3B9D4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CEC159713F3D04B00C3B9D4 /* InfoPlist.strings */; };
+		9CEC159B13F3D04B00C3B9D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEC159A13F3D04B00C3B9D4 /* main.m */; };
+		9CEC159F13F3D04B00C3B9D4 /* CoreTextMagazineAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEC159E13F3D04B00C3B9D4 /* CoreTextMagazineAppDelegate.m */; };
+		9CEC15A213F3D04B00C3B9D4 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CEC15A013F3D04B00C3B9D4 /* MainWindow.xib */; };
+		9CEC15A513F3D04B00C3B9D4 /* CoreTextMagazineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEC15A413F3D04B00C3B9D4 /* CoreTextMagazineViewController.m */; };
+		9CEC15A813F3D04B00C3B9D4 /* CoreTextMagazineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CEC15A613F3D04B00C3B9D4 /* CoreTextMagazineViewController.xib */; };
+		9CEC15AF13F3D08E00C3B9D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEC15AE13F3D08E00C3B9D4 /* CoreText.framework */; };
+		9CEC15B213F3D0B000C3B9D4 /* CTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEC15B113F3D0B000C3B9D4 /* CTView.m */; };
+		9CEC15B513F3D11000C3B9D4 /* MarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEC15B413F3D11000C3B9D4 /* MarkupParser.m */; };
+		9CEC15B713F3D1FE00C3B9D4 /* test.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9CEC15B613F3D1FE00C3B9D4 /* test.txt */; };
+		9CEC15BA13F3D2E400C3B9D4 /* CTColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEC15B913F3D2E400C3B9D4 /* CTColumnView.m */; };
+		9CEC15BF13F3D4D000C3B9D4 /* zombie1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9CEC15BB13F3D4D000C3B9D4 /* zombie1.jpg */; };
+		9CEC15C013F3D4D000C3B9D4 /* zombie2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9CEC15BC13F3D4D000C3B9D4 /* zombie2.jpg */; };
+		9CEC15C113F3D4D000C3B9D4 /* zombie3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9CEC15BD13F3D4D000C3B9D4 /* zombie3.jpg */; };
+		9CEC15C213F3D4D000C3B9D4 /* zombies.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9CEC15BE13F3D4D000C3B9D4 /* zombies.txt */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		010B3A1219FA2CD200EF6810 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = CoreTextMagazineViewController.xib; sourceTree = "<group>"; };
+		010B3A1419FA2CD200EF6810 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		010B3A1619FA2CD200EF6810 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = MainWindow.xib; sourceTree = "<group>"; };
+		9CEC158A13F3D04B00C3B9D4 /* CoreTextMagazine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreTextMagazine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CEC158E13F3D04B00C3B9D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9CEC159013F3D04B00C3B9D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9CEC159213F3D04B00C3B9D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9CEC159613F3D04B00C3B9D4 /* CoreTextMagazine-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoreTextMagazine-Info.plist"; sourceTree = "<group>"; };
+		9CEC159813F3D04B00C3B9D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9CEC159A13F3D04B00C3B9D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9CEC159C13F3D04B00C3B9D4 /* CoreTextMagazine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoreTextMagazine-Prefix.pch"; sourceTree = "<group>"; };
+		9CEC159D13F3D04B00C3B9D4 /* CoreTextMagazineAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreTextMagazineAppDelegate.h; sourceTree = "<group>"; };
+		9CEC159E13F3D04B00C3B9D4 /* CoreTextMagazineAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreTextMagazineAppDelegate.m; sourceTree = "<group>"; };
+		9CEC15A113F3D04B00C3B9D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		9CEC15A313F3D04B00C3B9D4 /* CoreTextMagazineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreTextMagazineViewController.h; sourceTree = "<group>"; };
+		9CEC15A413F3D04B00C3B9D4 /* CoreTextMagazineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreTextMagazineViewController.m; sourceTree = "<group>"; };
+		9CEC15A713F3D04B00C3B9D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CoreTextMagazineViewController.xib; sourceTree = "<group>"; };
+		9CEC15AE13F3D08E00C3B9D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		9CEC15B013F3D0B000C3B9D4 /* CTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTView.h; path = CoreTextMagazine/CTView.h; sourceTree = "<group>"; };
+		9CEC15B113F3D0B000C3B9D4 /* CTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTView.m; path = CoreTextMagazine/CTView.m; sourceTree = "<group>"; };
+		9CEC15B313F3D11000C3B9D4 /* MarkupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkupParser.h; path = CoreTextMagazine/MarkupParser.h; sourceTree = "<group>"; };
+		9CEC15B413F3D11000C3B9D4 /* MarkupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MarkupParser.m; path = CoreTextMagazine/MarkupParser.m; sourceTree = "<group>"; };
+		9CEC15B613F3D1FE00C3B9D4 /* test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.txt; path = CoreTextMagazine/test.txt; sourceTree = "<group>"; };
+		9CEC15B813F3D2E400C3B9D4 /* CTColumnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTColumnView.h; path = CoreTextMagazine/CTColumnView.h; sourceTree = "<group>"; };
+		9CEC15B913F3D2E400C3B9D4 /* CTColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTColumnView.m; path = CoreTextMagazine/CTColumnView.m; sourceTree = "<group>"; };
+		9CEC15BB13F3D4D000C3B9D4 /* zombie1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zombie1.jpg; sourceTree = "<group>"; };
+		9CEC15BC13F3D4D000C3B9D4 /* zombie2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zombie2.jpg; sourceTree = "<group>"; };
+		9CEC15BD13F3D4D000C3B9D4 /* zombie3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zombie3.jpg; sourceTree = "<group>"; };
+		9CEC15BE13F3D4D000C3B9D4 /* zombies.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zombies.txt; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9CEC158713F3D04A00C3B9D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CEC15AF13F3D08E00C3B9D4 /* CoreText.framework in Frameworks */,
+				9CEC158F13F3D04B00C3B9D4 /* UIKit.framework in Frameworks */,
+				9CEC159113F3D04B00C3B9D4 /* Foundation.framework in Frameworks */,
+				9CEC159313F3D04B00C3B9D4 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		010B3A1019FA2CD200EF6810 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				010B3A1119FA2CD200EF6810 /* CoreTextMagazineViewController.xib */,
+				010B3A1319FA2CD200EF6810 /* InfoPlist.strings */,
+				010B3A1519FA2CD200EF6810 /* MainWindow.xib */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		9CEC157F13F3D04A00C3B9D4 = {
+			isa = PBXGroup;
+			children = (
+				9CEC15BB13F3D4D000C3B9D4 /* zombie1.jpg */,
+				9CEC15BC13F3D4D000C3B9D4 /* zombie2.jpg */,
+				9CEC15BD13F3D4D000C3B9D4 /* zombie3.jpg */,
+				9CEC15BE13F3D4D000C3B9D4 /* zombies.txt */,
+				9CEC15B813F3D2E400C3B9D4 /* CTColumnView.h */,
+				9CEC15B913F3D2E400C3B9D4 /* CTColumnView.m */,
+				9CEC15B613F3D1FE00C3B9D4 /* test.txt */,
+				9CEC15B313F3D11000C3B9D4 /* MarkupParser.h */,
+				9CEC15B413F3D11000C3B9D4 /* MarkupParser.m */,
+				9CEC15B013F3D0B000C3B9D4 /* CTView.h */,
+				9CEC15B113F3D0B000C3B9D4 /* CTView.m */,
+				9CEC15AE13F3D08E00C3B9D4 /* CoreText.framework */,
+				9CEC159413F3D04B00C3B9D4 /* CoreTextMagazine */,
+				9CEC158D13F3D04B00C3B9D4 /* Frameworks */,
+				9CEC158B13F3D04B00C3B9D4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9CEC158B13F3D04B00C3B9D4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9CEC158A13F3D04B00C3B9D4 /* CoreTextMagazine.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9CEC158D13F3D04B00C3B9D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9CEC158E13F3D04B00C3B9D4 /* UIKit.framework */,
+				9CEC159013F3D04B00C3B9D4 /* Foundation.framework */,
+				9CEC159213F3D04B00C3B9D4 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9CEC159413F3D04B00C3B9D4 /* CoreTextMagazine */ = {
+			isa = PBXGroup;
+			children = (
+				010B3A1019FA2CD200EF6810 /* en.lproj */,
+				9CEC159D13F3D04B00C3B9D4 /* CoreTextMagazineAppDelegate.h */,
+				9CEC159E13F3D04B00C3B9D4 /* CoreTextMagazineAppDelegate.m */,
+				9CEC15A013F3D04B00C3B9D4 /* MainWindow.xib */,
+				9CEC15A313F3D04B00C3B9D4 /* CoreTextMagazineViewController.h */,
+				9CEC15A413F3D04B00C3B9D4 /* CoreTextMagazineViewController.m */,
+				9CEC15A613F3D04B00C3B9D4 /* CoreTextMagazineViewController.xib */,
+				9CEC159513F3D04B00C3B9D4 /* Supporting Files */,
+			);
+			path = CoreTextMagazine;
+			sourceTree = "<group>";
+		};
+		9CEC159513F3D04B00C3B9D4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9CEC159613F3D04B00C3B9D4 /* CoreTextMagazine-Info.plist */,
+				9CEC159713F3D04B00C3B9D4 /* InfoPlist.strings */,
+				9CEC159A13F3D04B00C3B9D4 /* main.m */,
+				9CEC159C13F3D04B00C3B9D4 /* CoreTextMagazine-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9CEC158913F3D04A00C3B9D4 /* CoreTextMagazine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CEC15AB13F3D04B00C3B9D4 /* Build configuration list for PBXNativeTarget "CoreTextMagazine" */;
+			buildPhases = (
+				9CEC158613F3D04A00C3B9D4 /* Sources */,
+				9CEC158713F3D04A00C3B9D4 /* Frameworks */,
+				9CEC158813F3D04A00C3B9D4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoreTextMagazine;
+			productName = CoreTextMagazine;
+			productReference = 9CEC158A13F3D04B00C3B9D4 /* CoreTextMagazine.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9CEC158113F3D04A00C3B9D4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Marin Todorov";
+			};
+			buildConfigurationList = 9CEC158413F3D04A00C3B9D4 /* Build configuration list for PBXProject "CoreTextMagazine" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9CEC157F13F3D04A00C3B9D4;
+			productRefGroup = 9CEC158B13F3D04B00C3B9D4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9CEC158913F3D04A00C3B9D4 /* CoreTextMagazine */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9CEC158813F3D04A00C3B9D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				010B3A1919FA2CD200EF6810 /* MainWindow.xib in Resources */,
+				9CEC159913F3D04B00C3B9D4 /* InfoPlist.strings in Resources */,
+				9CEC15A213F3D04B00C3B9D4 /* MainWindow.xib in Resources */,
+				9CEC15A813F3D04B00C3B9D4 /* CoreTextMagazineViewController.xib in Resources */,
+				9CEC15B713F3D1FE00C3B9D4 /* test.txt in Resources */,
+				010B3A1719FA2CD200EF6810 /* CoreTextMagazineViewController.xib in Resources */,
+				9CEC15BF13F3D4D000C3B9D4 /* zombie1.jpg in Resources */,
+				9CEC15C013F3D4D000C3B9D4 /* zombie2.jpg in Resources */,
+				9CEC15C113F3D4D000C3B9D4 /* zombie3.jpg in Resources */,
+				9CEC15C213F3D4D000C3B9D4 /* zombies.txt in Resources */,
+				010B3A1819FA2CD200EF6810 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9CEC158613F3D04A00C3B9D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CEC159B13F3D04B00C3B9D4 /* main.m in Sources */,
+				9CEC159F13F3D04B00C3B9D4 /* CoreTextMagazineAppDelegate.m in Sources */,
+				9CEC15A513F3D04B00C3B9D4 /* CoreTextMagazineViewController.m in Sources */,
+				9CEC15B213F3D0B000C3B9D4 /* CTView.m in Sources */,
+				9CEC15B513F3D11000C3B9D4 /* MarkupParser.m in Sources */,
+				9CEC15BA13F3D2E400C3B9D4 /* CTColumnView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		010B3A1119FA2CD200EF6810 /* CoreTextMagazineViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				010B3A1219FA2CD200EF6810 /* en */,
+			);
+			name = CoreTextMagazineViewController.xib;
+			sourceTree = "<group>";
+		};
+		010B3A1319FA2CD200EF6810 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				010B3A1419FA2CD200EF6810 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		010B3A1519FA2CD200EF6810 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				010B3A1619FA2CD200EF6810 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		9CEC159713F3D04B00C3B9D4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9CEC159813F3D04B00C3B9D4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9CEC15A013F3D04B00C3B9D4 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9CEC15A113F3D04B00C3B9D4 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		9CEC15A613F3D04B00C3B9D4 /* CoreTextMagazineViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9CEC15A713F3D04B00C3B9D4 /* en */,
+			);
+			name = CoreTextMagazineViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9CEC15A913F3D04B00C3B9D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		9CEC15AA13F3D04B00C3B9D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9CEC15AC13F3D04B00C3B9D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CoreTextMagazine/CoreTextMagazine-Prefix.pch";
+				INFOPLIST_FILE = "CoreTextMagazine/CoreTextMagazine-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9CEC15AD13F3D04B00C3B9D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CoreTextMagazine/CoreTextMagazine-Prefix.pch";
+				INFOPLIST_FILE = "CoreTextMagazine/CoreTextMagazine-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9CEC158413F3D04A00C3B9D4 /* Build configuration list for PBXProject "CoreTextMagazine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CEC15A913F3D04B00C3B9D4 /* Debug */,
+				9CEC15AA13F3D04B00C3B9D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CEC15AB13F3D04B00C3B9D4 /* Build configuration list for PBXNativeTarget "CoreTextMagazine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CEC15AC13F3D04B00C3B9D4 /* Debug */,
+				9CEC15AD13F3D04B00C3B9D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9CEC158113F3D04A00C3B9D4 /* Project object */;
+}

@@ -1,0 +1,4 @@
+/Users/tony/Desktop/iOS案例分析/APP 50+/31/Password/Classes/FlipsideView.m: In function '-[FlipsideView dealloc]':
+/Users/tony/Desktop/iOS案例分析/APP 50+/31/Password/Classes/FlipsideView.m:28: error: 'password' undeclared (first use in this function)
+/Users/tony/Desktop/iOS案例分析/APP 50+/31/Password/Classes/FlipsideView.m:28: error: (Each undeclared identifier is reported only once
+/Users/tony/Desktop/iOS案例分析/APP 50+/31/Password/Classes/FlipsideView.m:28: error: for each function it appears in.)
